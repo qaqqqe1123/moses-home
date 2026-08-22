@@ -731,6 +731,96 @@
     .pillars span:nth-child(4)::before { background: var(--gold); }
     .pillars span:hover { transform: translateY(-1px); }
 
+    /* Compare VS */
+    .compare-board {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(10, 20, 30, 0.55), rgba(6, 11, 16, 0.35));
+      overflow: hidden;
+    }
+    .compare-cols {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+    .compare-cols--head {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .compare-side {
+      font-family: var(--font-zh);
+      padding: 1.15rem 1.25rem;
+    }
+    .compare-side--us {
+      border-right: 1px solid var(--line-soft);
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.07), transparent 68%);
+    }
+    .compare-side--them {
+      border-left: 1px solid var(--line-soft);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent 68%);
+    }
+    .compare-cols--head .compare-side--us {
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+    }
+    .compare-cols--head .compare-side--them {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+    }
+    .compare-vs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 3.2rem;
+      padding: 0 0.35rem;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--neon-2);
+      background: rgba(184, 109, 255, 0.08);
+      border-left: 1px solid var(--line-soft);
+      border-right: 1px solid var(--line-soft);
+    }
+    .compare-row {
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-tag {
+      font-family: var(--font-zh);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      padding: 0.65rem 1.25rem 0.45rem;
+      background: rgba(56, 189, 248, 0.06);
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .compare-side strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 0.35rem;
+    }
+    .compare-side--us strong { color: var(--ink-bright); }
+    .compare-side--them strong { color: #9fb0c0; }
+    .compare-side p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .compare-side--us p { color: var(--ink-body); }
+    .compare-side--them p { color: var(--muted); }
+    .compare-row:nth-child(2) .compare-tag { color: var(--teal); background: rgba(45, 212, 191, 0.06); }
+    .compare-row:nth-child(3) .compare-tag { color: var(--neon-2); background: rgba(184, 109, 255, 0.06); }
+    .compare-row:nth-child(4) .compare-tag { color: var(--gold); background: rgba(251, 191, 36, 0.06); }
+    .compare-row:nth-child(5) .compare-tag { color: var(--cyan); background: rgba(56, 189, 248, 0.06); }
+
     .foot {
       padding: 1.2rem 0 2.4rem;
       border-top: 1px solid var(--line);
@@ -791,6 +881,18 @@
       .svc,
       .after,
       .flow { grid-template-columns: 1fr; }
+      .compare-cols,
+      .compare-cols--head { grid-template-columns: 1fr; }
+      .compare-vs {
+        min-width: 0;
+        padding: 0.45rem;
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid var(--line-soft);
+        border-bottom: 1px solid var(--line-soft);
+      }
+      .compare-side--us { border-right: none; }
+      .compare-side--them { border-left: none; }
       .svc li {
         border-right: none;
         margin: 0 0 1.25rem;
@@ -813,6 +915,7 @@
       <nav class="nav" aria-label="页面导航">
         <a href="#ultimate" class="nav-feature">终极套餐</a>
         <a href="#services">服务</a>
+        <a href="#compare">专业对比</a>
         <a href="#downloads">下载</a>
         <a href="#pitch">为什么优化</a>
         <a href="#aftercare">售后</a>
@@ -909,6 +1012,75 @@
             <span class="d">干净系统部署、驱动与电源计划、后台精简与游戏场景优化，让性能用在对局里。</span>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section class="wrap section" id="compare">
+      <div class="sec-label">Compare</div>
+      <h2 class="sec-title">专业调校 VS 快餐式超频</h2>
+      <p class="sec-desc">时间、参数、售后、稳定性四个维度，一眼看清差距。稳定可靠，才是超频的硬道理。</p>
+      <div class="compare-board">
+        <div class="compare-cols compare-cols--head" aria-hidden="true">
+          <div class="compare-side compare-side--us">MOSES 超频</div>
+          <div class="compare-vs">VS</div>
+          <div class="compare-side compare-side--them">其他</div>
+        </div>
+        <article class="compare-row">
+          <div class="compare-tag">时间对比</div>
+          <div class="compare-cols">
+            <div class="compare-side compare-side--us">
+              <strong>精调 2 个小时打底 · 2h+</strong>
+              <p>精细调校，时间足；稳定才是硬道理。</p>
+            </div>
+            <div class="compare-vs">VS</div>
+            <div class="compare-side compare-side--them">
+              <strong>20 分钟 / 30 分钟解决</strong>
+              <p>快速调试，时间短。</p>
+            </div>
+          </div>
+        </article>
+        <article class="compare-row">
+          <div class="compare-tag">参数对比</div>
+          <div class="compare-cols">
+            <div class="compare-side compare-side--us">
+              <strong>一机一调，量身定制</strong>
+              <p>发挥硬件最大潜力，拒绝千篇一律。</p>
+            </div>
+            <div class="compare-vs">VS</div>
+            <div class="compare-side compare-side--them">
+              <strong>参数模板，甚至套参</strong>
+              <p>批量操作，千篇一律。</p>
+            </div>
+          </div>
+        </article>
+        <article class="compare-row">
+          <div class="compare-tag">售后对比</div>
+          <div class="compare-cols">
+            <div class="compare-side compare-side--us">
+              <strong>我们随时都在</strong>
+              <p>专业售后团队，随时响应，快速解决。</p>
+            </div>
+            <div class="compare-vs">VS</div>
+            <div class="compare-side compare-side--them">
+              <strong>没有售后</strong>
+              <p>出问题找不到人，售后无保障。</p>
+            </div>
+          </div>
+        </article>
+        <article class="compare-row">
+          <div class="compare-tag">稳定性对比</div>
+          <div class="compare-cols">
+            <div class="compare-side compare-side--us">
+              <strong>长期稳定运行</strong>
+              <p>严格测试，稳定可靠，长期使用无压力。</p>
+            </div>
+            <div class="compare-vs">VS</div>
+            <div class="compare-side compare-side--them">
+              <strong>超频后稳定性出问题</strong>
+              <p>蓝屏、死机、游戏崩溃，隐患多。</p>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
