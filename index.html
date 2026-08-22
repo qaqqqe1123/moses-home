@@ -552,6 +552,55 @@
       margin-top: 0.45rem;
     }
 
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .story article {
+      background: rgba(7, 14, 20, 0.45);
+      border: 1px solid var(--line);
+      padding: 1.4rem 1.35rem 1.45rem;
+    }
+    .story .n {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .story h3 {
+      font-family: var(--font-zh);
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 0.65rem;
+    }
+    .story p {
+      font-family: var(--font-zh);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+      margin-top: 1.35rem;
+    }
+    .pillars span {
+      display: block;
+      border: 1px solid var(--line);
+      padding: 0.62rem 0.7rem;
+      font-family: var(--font-zh);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-align: center;
+      color: #d7e6ef;
+    }
+
     .foot {
       padding: 1.2rem 0 2.4rem;
       border-top: 1px solid var(--line);
@@ -589,7 +638,9 @@
       .pitch,
       .feat-grid,
       .dl-grid,
-      .notes { grid-template-columns: 1fr; }
+      .notes,
+      .story { grid-template-columns: 1fr; }
+      .pillars { grid-template-columns: 1fr 1fr; }
       .hero {
         min-height: auto;
         padding: 2.2rem 0 2.5rem;
@@ -618,6 +669,7 @@
     <div class="top-inner">
       <a class="brand" href="#">MOSES<b>.</b></a>
       <nav class="nav" aria-label="页面导航">
+        <a href="#ultimate">终极套餐</a>
         <a href="#services">服务</a>
         <a href="#downloads">下载</a>
         <a href="#pitch">为什么优化</a>
@@ -635,9 +687,9 @@
         <h1>你花两万块配的电脑，也许只发挥出<em>一万块</em>的实力。</h1>
         <p class="hero-lead">不是硬件不行，是 Windows 没做优化。CPU 超频、DDR4/DDR5 内存超频、电竞系统安装，一次做到位。</p>
         <div class="hero-cta">
-          <a class="btn btn-main" href="#services">查看服务项目</a>
+          <a class="btn btn-main" href="#ultimate">终极套餐</a>
           <a class="btn btn-neon" href="#downloads">下载软件</a>
-          <a class="btn btn-sub" href="#aftercare">售后说明</a>
+          <a class="btn btn-sub" href="#services">查看服务项目</a>
         </div>
       </div>
       <aside class="hero-panel">
@@ -651,6 +703,40 @@
           <p>CTK超频团队<small>技术支持</small></p>
         </div>
       </aside>
+    </section>
+
+    <section class="wrap section" id="ultimate">
+      <div class="sec-label">Ultimate</div>
+      <h2 class="sec-title">革新您的游戏、网络和流媒体体验</h2>
+      <p class="sec-desc">进入一个分秒必争的世界！我们的 IT 专家致力于充分发挥您设备的全部潜能，确保您先发制人，提升游戏体验，并优化每一帧画面和每一发子弹的精准识别。您的游戏冠军之路，从终极套餐开始！</p>
+      <div class="story">
+        <article>
+          <span class="n">01</span>
+          <h3>释放无与伦比的游戏性能</h3>
+          <p>我们的终极套餐助您将游戏体验提升至专业水平！先发制人，提升帧率，确保每一颗子弹都命中目标，从而在游戏中占据绝对优势。我们将对您的电脑、网络和直播进行精细调校，助您在游戏的各个方面都达到巅峰！</p>
+        </article>
+        <article>
+          <span class="n">02</span>
+          <h3>优化、提升、主导</h3>
+          <p>我们的终极套餐将带给您前所未有的游戏体验！我们不仅优化您的游戏性能，更重新定义您的游戏、直播和网络性能。先发制人，提升您的击杀/死亡比，确保每一颗子弹、每一份策略都发挥最大效用，同时最大限度地降低延迟，提升游戏性能！</p>
+        </article>
+        <article>
+          <span class="n">03</span>
+          <h3>终极套装，助您在游戏中占据优势</h3>
+          <p>想要解锁职业级游戏秘诀？我们的终极套餐助你一臂之力！从抢先发现敌人到提升击杀/死亡比，从提升帧率到降低延迟——我们全方位优化，助你制胜。借助我们全面的 IT 优化方案，获得战术优势，提升观众观看量，在游戏的各个方面都占据绝对优势！</p>
+        </article>
+        <article>
+          <span class="n">04</span>
+          <h3>冠军之路，从终极套餐开始</h3>
+          <p>分秒必争的对局里，硬件只是起点。电脑、网络、直播与系统协同调校，让每一帧更稳、每一发更准、每一次操作都更跟手。MOSES 与 CTK 超频团队，用专业 IT 优化把设备潜能真正释放出来。</p>
+        </article>
+      </div>
+      <div class="pillars" aria-hidden="true">
+        <span>先发制人</span>
+        <span>提升帧率</span>
+        <span>降低延迟</span>
+        <span>优化直播</span>
+      </div>
     </section>
 
     <section class="band" id="services">
