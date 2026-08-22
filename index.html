@@ -802,17 +802,19 @@
     }
     .compare-side strong {
       display: block;
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 1.1vw + 0.78rem, 1rem);
       font-weight: 700;
       line-height: 1.45;
       margin-bottom: 0.35rem;
+      word-break: break-word;
     }
     .compare-side--us strong { color: var(--ink-bright); }
     .compare-side--them strong { color: #9fb0c0; }
     .compare-side p {
-      font-size: 0.88rem;
+      font-size: clamp(0.82rem, 0.85vw + 0.72rem, 0.88rem);
       line-height: 1.65;
       margin: 0;
+      word-break: break-word;
     }
     .compare-side--us p { color: var(--ink-body); }
     .compare-side--them p { color: var(--muted); }
@@ -820,6 +822,41 @@
     .compare-row:nth-child(3) .compare-tag { color: var(--neon-2); background: rgba(184, 109, 255, 0.06); }
     .compare-row:nth-child(4) .compare-tag { color: var(--gold); background: rgba(251, 191, 36, 0.06); }
     .compare-row:nth-child(5) .compare-tag { color: var(--cyan); background: rgba(56, 189, 248, 0.06); }
+
+    #compare .compare-intro {
+      margin-bottom: 1.75rem;
+    }
+    #compare .compare-title {
+      font-size: clamp(1.15rem, 2.6vw + 0.72rem, 1.68rem);
+      line-height: 1.42;
+      max-width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 0.6rem;
+      margin-bottom: 0.65rem;
+    }
+    #compare .compare-title-vs {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.1rem;
+      padding: 0.12rem 0.45rem;
+      font-family: var(--font-display);
+      font-size: clamp(0.62rem, 1.2vw + 0.48rem, 0.72rem);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--neon-2);
+      background: rgba(184, 109, 255, 0.12);
+      border: 1px solid rgba(184, 109, 255, 0.28);
+      flex-shrink: 0;
+    }
+    #compare .compare-desc {
+      font-size: clamp(0.88rem, 1.05vw + 0.78rem, 1.02rem);
+      max-width: 100%;
+      line-height: 1.82;
+      margin-bottom: 0;
+    }
 
     .foot {
       padding: 1.2rem 0 2.4rem;
@@ -893,6 +930,11 @@
       }
       .compare-side--us { border-right: none; }
       .compare-side--them { border-left: none; }
+      #compare .compare-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+      }
       .svc li {
         border-right: none;
         margin: 0 0 1.25rem;
@@ -1016,9 +1058,15 @@
     </section>
 
     <section class="wrap section" id="compare">
-      <div class="sec-label">Compare</div>
-      <h2 class="sec-title">专业调校 VS 快餐式超频</h2>
-      <p class="sec-desc">时间、参数、售后、稳定性四个维度，一眼看清差距。稳定可靠，才是超频的硬道理。</p>
+      <div class="compare-intro">
+        <div class="sec-label">Compare</div>
+        <h2 class="sec-title compare-title">
+          <span>专业调校</span>
+          <span class="compare-title-vs">VS</span>
+          <span>快餐式超频</span>
+        </h2>
+        <p class="sec-desc compare-desc">时间、参数、售后、稳定性四个维度，一眼看清差距。稳定可靠，才是超频的硬道理。</p>
+      </div>
       <div class="compare-board">
         <div class="compare-cols compare-cols--head" aria-hidden="true">
           <div class="compare-side compare-side--us">MOSES 超频</div>
