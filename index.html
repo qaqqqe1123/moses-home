@@ -12,13 +12,23 @@
     :root {
       --bg: #060b10;
       --bg-band: #0a1219;
+      --bg-card: rgba(10, 20, 30, 0.72);
       --ink: #eef5fa;
-      --muted: #8499ad;
+      --ink-bright: #f6fafc;
+      --ink-body: #b8c8d6;
+      --muted: #7a92a8;
+      --muted-dim: #566878;
       --teal: #2dd4bf;
-      --neon: #c25dff;
-      --neon-2: #d67aff;
-      --cyan: #40b8ff;
+      --teal-soft: rgba(45, 212, 191, 0.12);
+      --neon: #b86dff;
+      --neon-2: #d4a0ff;
+      --neon-soft: rgba(184, 109, 255, 0.1);
+      --cyan: #38bdf8;
+      --cyan-soft: rgba(56, 189, 248, 0.1);
+      --gold: #fbbf24;
+      --gold-soft: rgba(251, 191, 36, 0.08);
       --line: #1a2c3c;
+      --line-soft: rgba(255, 255, 255, 0.06);
       --font-display: "Syne", "Segoe UI", sans-serif;
       --font-zh: "Microsoft YaHei UI", "PingFang SC", "Noto Sans SC", sans-serif;
       --font-body: "Microsoft YaHei UI", "PingFang SC", "Manrope", "Segoe UI", sans-serif;
@@ -84,7 +94,11 @@
       color: var(--muted);
       transition: color 0.2s;
     }
-    .nav a:hover { color: var(--teal); }
+    .nav a:hover { color: var(--ink-bright); }
+    .nav a.nav-feature {
+      color: var(--neon-2);
+    }
+    .nav a.nav-feature:hover { color: var(--teal); }
 
     /* Hero */
     .hero {
@@ -113,6 +127,7 @@
       line-height: 1.32;
       max-width: 12.5em;
       margin-bottom: 1rem;
+      color: var(--ink-bright);
     }
     .hero h1 em {
       font-style: normal;
@@ -120,7 +135,7 @@
     }
     .hero-lead {
       font-family: var(--font-zh);
-      color: var(--muted);
+      color: var(--ink-body);
       font-size: 1.02rem;
       max-width: 28rem;
       margin-bottom: 1.6rem;
@@ -229,13 +244,15 @@
       font-size: clamp(1.25rem, 1.2vw + 0.9rem, 1.55rem);
       font-weight: 700;
       margin-bottom: 0.45rem;
+      color: var(--ink-bright);
     }
     .sec-desc {
       font-family: var(--font-zh);
-      color: var(--muted);
+      color: var(--ink-body);
       font-size: 0.95rem;
       max-width: 34rem;
       margin-bottom: 1.75rem;
+      line-height: 1.75;
     }
 
     /* Services - primary */
@@ -273,10 +290,11 @@
       font-weight: 700;
       margin-bottom: 0.55rem;
       line-height: 1.3;
+      color: var(--ink-bright);
     }
     .svc .d {
       display: block;
-      color: var(--muted);
+      color: var(--ink-body);
       font-size: 0.9rem;
       line-height: 1.6;
     }
@@ -338,6 +356,7 @@
       font-weight: 700;
       line-height: 1.4;
       max-width: 12em;
+      color: var(--ink-bright);
     }
     .pitch-side .mark em {
       font-style: normal;
@@ -345,7 +364,7 @@
     }
     .pitch-copy {
       font-family: var(--font-zh);
-      color: var(--muted);
+      color: var(--ink-body);
       font-size: 0.95rem;
       line-height: 1.75;
     }
@@ -369,6 +388,7 @@
       font-weight: 700;
       margin-bottom: 1.5rem;
       max-width: 34rem;
+      color: var(--ink-bright);
     }
     .after-lead em {
       font-style: normal;
@@ -402,10 +422,11 @@
       font-weight: 700;
       font-size: 1rem;
       margin-bottom: 0.35rem;
+      color: var(--ink-bright);
     }
     .after .d {
       display: block;
-      color: var(--muted);
+      color: var(--ink-body);
       font-size: 0.88rem;
       line-height: 1.55;
     }
@@ -439,7 +460,7 @@
       color: var(--teal);
     }
     .feat-col.opt .t { color: var(--neon-2); }
-    .feat .d { color: var(--muted); }
+    .feat .d { color: var(--ink-body); }
 
     /* Flow */
     .flow {
@@ -481,10 +502,11 @@
       font-weight: 700;
       font-size: 1rem;
       margin-bottom: 0.35rem;
+      color: var(--ink-bright);
     }
     .flow .d {
       display: block;
-      color: var(--muted);
+      color: var(--ink-body);
       font-size: 0.84rem;
       line-height: 1.5;
     }
@@ -554,52 +576,160 @@
 
     .story {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.1rem;
+    }
+    .ultimate-band {
+      background:
+        linear-gradient(180deg, rgba(45, 212, 191, 0.05) 0%, transparent 34%),
+        radial-gradient(ellipse 68% 48% at 100% 0%, rgba(184, 109, 255, 0.09), transparent 52%),
+        var(--bg-band);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .ultimate-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 2rem 3rem;
+      align-items: end;
+      margin-bottom: 2.1rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .ultimate-head .sec-title {
+      font-size: clamp(1.35rem, 1.5vw + 0.9rem, 1.78rem);
+      max-width: 13em;
+      line-height: 1.38;
+      margin-bottom: 0;
+    }
+    .ultimate-lead {
+      font-family: var(--font-zh);
+      color: var(--ink-body);
+      font-size: 0.98rem;
+      line-height: 1.82;
+      border-left: 2px solid var(--teal);
+      padding: 0.15rem 0 0.15rem 1.25rem;
+      margin: 0;
     }
     .story article {
-      background: rgba(7, 14, 20, 0.45);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(165deg, rgba(14, 28, 40, 0.88), rgba(8, 14, 22, 0.58));
       border: 1px solid var(--line);
-      padding: 1.4rem 1.35rem 1.45rem;
+      padding: 1.55rem 1.45rem 1.6rem;
+      min-height: 100%;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .story article:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    .story article::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+    }
+    .story article:nth-child(1)::before {
+      background: linear-gradient(90deg, var(--teal), transparent 72%);
+    }
+    .story article:nth-child(2)::before {
+      background: linear-gradient(90deg, var(--neon-2), transparent 72%);
+    }
+    .story article:nth-child(3)::before {
+      background: linear-gradient(90deg, var(--cyan), transparent 72%);
+    }
+    .story article:nth-child(4)::before {
+      background: linear-gradient(90deg, var(--gold), transparent 72%);
     }
     .story .n {
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2rem;
       font-family: var(--font-display);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--teal);
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+      padding: 0.22rem 0.45rem;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
     }
+    .story article:nth-child(1) .n { color: var(--teal); border-color: rgba(45, 212, 191, 0.35); }
+    .story article:nth-child(2) .n { color: var(--neon-2); border-color: rgba(212, 160, 255, 0.35); }
+    .story article:nth-child(3) .n { color: var(--cyan); border-color: rgba(56, 189, 248, 0.35); }
+    .story article:nth-child(4) .n { color: var(--gold); border-color: rgba(251, 191, 36, 0.35); }
     .story h3 {
       font-family: var(--font-zh);
-      font-size: 1.08rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 0.65rem;
+      line-height: 1.42;
+      margin-bottom: 0.7rem;
+      color: var(--ink-bright);
     }
     .story p {
       font-family: var(--font-zh);
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.75;
+      color: var(--ink-body);
+      font-size: 0.93rem;
+      line-height: 1.78;
     }
     .pillars {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0.65rem;
-      margin-top: 1.35rem;
+      gap: 0.75rem;
+      margin-top: 1.6rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid var(--line-soft);
     }
     .pillars span {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
       border: 1px solid var(--line);
-      padding: 0.62rem 0.7rem;
+      padding: 0.85rem 0.75rem;
       font-family: var(--font-zh);
-      font-size: 0.8rem;
+      font-size: 0.84rem;
       font-weight: 700;
       text-align: center;
-      color: #d7e6ef;
+      letter-spacing: 0.04em;
+      transition: transform 0.2s, border-color 0.2s;
     }
+    .pillars span::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+    }
+    .pillars span:nth-child(1) {
+      color: #aaf0e8;
+      background: var(--teal-soft);
+      border-color: rgba(45, 212, 191, 0.28);
+    }
+    .pillars span:nth-child(1)::before { background: var(--teal); }
+    .pillars span:nth-child(2) {
+      color: #e4c8ff;
+      background: var(--neon-soft);
+      border-color: rgba(184, 109, 255, 0.28);
+    }
+    .pillars span:nth-child(2)::before { background: var(--neon-2); }
+    .pillars span:nth-child(3) {
+      color: #b8e6ff;
+      background: var(--cyan-soft);
+      border-color: rgba(56, 189, 248, 0.28);
+    }
+    .pillars span:nth-child(3)::before { background: var(--cyan); }
+    .pillars span:nth-child(4) {
+      color: #fde6a8;
+      background: var(--gold-soft);
+      border-color: rgba(251, 191, 36, 0.28);
+    }
+    .pillars span:nth-child(4)::before { background: var(--gold); }
+    .pillars span:hover { transform: translateY(-1px); }
 
     .foot {
       padding: 1.2rem 0 2.4rem;
@@ -639,7 +769,19 @@
       .feat-grid,
       .dl-grid,
       .notes,
-      .story { grid-template-columns: 1fr; }
+      .story,
+      .ultimate-head { grid-template-columns: 1fr; }
+      .ultimate-head {
+        gap: 1.15rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .ultimate-lead {
+        border-left: none;
+        padding-left: 0;
+        border-top: 2px solid var(--teal);
+        padding-top: 1rem;
+      }
       .pillars { grid-template-columns: 1fr 1fr; }
       .hero {
         min-height: auto;
@@ -669,7 +811,7 @@
     <div class="top-inner">
       <a class="brand" href="#">MOSES<b>.</b></a>
       <nav class="nav" aria-label="页面导航">
-        <a href="#ultimate">终极套餐</a>
+        <a href="#ultimate" class="nav-feature">终极套餐</a>
         <a href="#services">服务</a>
         <a href="#downloads">下载</a>
         <a href="#pitch">为什么优化</a>
@@ -705,11 +847,16 @@
       </aside>
     </section>
 
-    <section class="wrap section" id="ultimate">
-      <div class="sec-label">Ultimate</div>
-      <h2 class="sec-title">革新您的游戏、网络和流媒体体验</h2>
-      <p class="sec-desc">进入一个分秒必争的世界！我们的 IT 专家致力于充分发挥您设备的全部潜能，确保您先发制人，提升游戏体验，并优化每一帧画面和每一发子弹的精准识别。您的游戏冠军之路，从终极套餐开始！</p>
-      <div class="story">
+    <section class="ultimate-band" id="ultimate">
+      <div class="wrap section">
+        <div class="ultimate-head">
+          <div>
+            <div class="sec-label neon">Ultimate</div>
+            <h2 class="sec-title">革新您的游戏、网络和流媒体体验</h2>
+          </div>
+          <p class="ultimate-lead">进入一个分秒必争的世界！我们的 IT 专家致力于充分发挥您设备的全部潜能，确保您先发制人，提升游戏体验，并优化每一帧画面和每一发子弹的精准识别。您的游戏冠军之路，从终极套餐开始！</p>
+        </div>
+        <div class="story">
         <article>
           <span class="n">01</span>
           <h3>释放无与伦比的游戏性能</h3>
@@ -736,6 +883,7 @@
         <span>提升帧率</span>
         <span>降低延迟</span>
         <span>优化直播</span>
+      </div>
       </div>
     </section>
 
