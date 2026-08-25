@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# 降低部分爬虫抓取频率（对 Google 无效，但可挡部分垃圾爬虫）
+Crawl-delay: 10
+
+# 常见垃圾/扫描爬虫
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
